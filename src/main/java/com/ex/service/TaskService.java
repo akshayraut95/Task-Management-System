@@ -18,4 +18,6 @@ public interface TaskService {
 	List<Task> getTasksByUserId(Long userId);
     
 	void deleteTask(Long id);
+	
+	Task updateTaskStatus(Long taskId, String status);
 }
