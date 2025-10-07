@@ -53,4 +53,12 @@ public class TaskServiceImpl implements TaskService {
 		taskRepository.deleteById(id);
 	}
 
+	@Override
+	public Task updateTaskStatus(Long taskId, String status) {
+		
+		Task task=taskRepository.findById(taskId).orElseThrow(() -> new RuntimeException("task not found with id "+taskId));
+		task.setStatus(status); // Directly update entity
+		return taskRepository.save(task);
+	}
+
 }
